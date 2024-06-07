@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvdhljlyj6v8b"]
+
+[ext_resource type="Script" path="res://FirstPersonCharacter/FirstPersonController.cs" id="1_1u65h"]
+[ext_resource type="PackedScene" uid="uid://f7dt5jwb6x8u" path="res://FirstPersonCharacter/first_person_camera.tscn" id="1_51ru7"]
+[ext_resource type="Texture2D" uid="uid://bm4ikby1eoeoa" path="res://FirstPersonCharacter/BasicCapsuleTexture.png" id="1_jq8sn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7k4s"]
+albedo_texture = ExtResource("1_jq8sn")
+uv1_offset = Vector3(0.25, 0, 0)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0e75n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ccolh"]
+
+[node name="FirstPersonCharacter" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_1u65h")
+
+[node name="PlayerModel" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_d7k4s")
+mesh = SubResource("CapsuleMesh_0e75n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ccolh")
+
+[node name="FirstPersonCamera" parent="." instance=ExtResource("1_51ru7")]

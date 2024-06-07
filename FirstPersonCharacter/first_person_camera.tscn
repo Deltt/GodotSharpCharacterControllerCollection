@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://f7dt5jwb6x8u"]
+
+[ext_resource type="Script" path="res://FirstPersonCharacter/FirstPersonCamera.cs" id="1_ql4rd"]
+
+[node name="FirstPersonCamera" type="Node3D"]
+script = ExtResource("1_ql4rd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true

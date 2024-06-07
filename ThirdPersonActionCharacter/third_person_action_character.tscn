@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxyjr4a4dplcc"]
+
+[ext_resource type="Script" path="res://ThirdPersonActionCharacter/ThirdPersonActionController.cs" id="1_jteqg"]
+[ext_resource type="Texture2D" uid="uid://cag340jw1xqh6" path="res://ThirdPersonActionCharacter/BasicCapsuleTexture.png" id="2_6i723"]
+[ext_resource type="PackedScene" uid="uid://utq8uvpaxf3" path="res://ThirdPersonActionCharacter/third_person_action_camera.tscn" id="3_411qo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_785g8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfnei"]
+albedo_texture = ExtResource("2_6i723")
+uv1_offset = Vector3(-0.25, 0, 0)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_55ap4"]
+
+[sub_resource type="Animation" id="Animation_ut3cr"]
+resource_name = "idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerOrientation/PlayerModel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerOrientation/PlayerModel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_midtu"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerOrientation/PlayerModel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0523599), Vector3(0, 0, -0.0523599), Vector3(0, 0, 0.0523599)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerOrientation/PlayerModel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(-0.05, 0, 0), Vector3(0.05, 0, 0), Vector3(-0.05, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_188fn"]
+_data = {
+"idle": SubResource("Animation_ut3cr"),
+"walk": SubResource("Animation_midtu")
+}
+
+[node name="ThirdPersonCharacter" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 128
+script = ExtResource("1_jteqg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_785g8")
+
+[node name="PlayerOrientation" type="Node3D" parent="."]
+
+[node name="PlayerModel" type="MeshInstance3D" parent="PlayerOrientation"]
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, -0.05, 0, 0)
+material_override = SubResource("StandardMaterial3D_yfnei")
+mesh = SubResource("CapsuleMesh_55ap4")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+deterministic = true
+libraries = {
+"": SubResource("AnimationLibrary_188fn")
+}
+autoplay = "idle"
+
+[node name="ThirdPersonActionCamera" parent="." instance=ExtResource("3_411qo")]

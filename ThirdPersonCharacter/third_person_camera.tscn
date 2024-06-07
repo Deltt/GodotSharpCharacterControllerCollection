@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://db4uuuc6eb4x1"]
+
+[ext_resource type="Script" path="res://ThirdPersonCharacter/ThirdPersonCamera.cs" id="1_r2qoi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2jojf"]
+radius = 0.25
+
+[node name="ThirdPersonCamera" type="Node3D"]
+top_level = true
+script = ExtResource("1_r2qoi")
+cameraSway = true
+
+[node name="RotationGizmo" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="RotationGizmo"]
+shape = SubResource("SphereShape3D_2jojf")
+spring_length = 5.0
+margin = 0.04
+
+[node name="Camera3D" type="Camera3D" parent="RotationGizmo/SpringArm3D"]
