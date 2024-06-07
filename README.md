@@ -4,8 +4,10 @@
 
 These aren't optimized by any means, but they don't do anything beyond simple camera and character controls.
 
+
 ## What are these for?
 For quickly testing and prototyping mechanics, or simply exploring levels and environments.
+
 
 ## How do I use them?
 First, download or clone this repo.
@@ -17,10 +19,12 @@ Now you can freely test the available controllers inside of the repo project (op
 
 **Note: You may need to rebuild the C# solution for your project to recognize copied-in scripts! You find this option under Project -> Tools -> C# -> Create C# Solution inside of the Godot editor**.
 
+
 ## What are the controls?
 The controls are for the most part what you would expect them to be based on the genre of the character. The exception for this is the StrategyCamera which zooms with Q and E (because fsr mousewheel wouldn't get recognized). They are hardcoded so no need to setup Input Actions. **Escape will quit the game**.
 
 Controllers are supported for *FirstPerson*, *ThirdPerson*, and *ThirdPersonAction* (as JoyPad Device 0).
+
 
 ## Customization
 While these only are meant to be used for testing/prototyping, there's still a bunch of options and parameters you can set to get a more accurate feel of what you want in your own controller later.
@@ -30,6 +34,7 @@ While these only are meant to be used for testing/prototyping, there's still a b
 - Camera Sway option for ThirdPersonCamera (like many platformers have, **enabled by default**)
 
 - Never Face Backwards option for ThirdPersonActionCharacter (will make the character backpaddle instead of rotating towards the camera when running backwards, **enabled by default**)
+
 
 ## Notes
 
