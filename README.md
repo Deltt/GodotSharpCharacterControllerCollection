@@ -27,9 +27,9 @@ While these only are meant to be used for testing/prototyping, there's still a b
 
 - Many exported parameters for adjusting (otherwise feel free to edit the script)
 
-- Camera Sway option for ThirdPersonCamera (like many platformers have, enabled by default)
+- Camera Sway option for ThirdPersonCamera (like many platformers have, **enabled by default**)
 
-- Never Face Backwards option for ThirdPersonActionCharacter (will make the character backpaddle instead of rotating towards the camera when running backwards, enabled by default)
+- Never Face Backwards option for ThirdPersonActionCharacter (will make the character backpaddle instead of rotating towards the camera when running backwards, **enabled by default**)
 
 ## Notes
 
