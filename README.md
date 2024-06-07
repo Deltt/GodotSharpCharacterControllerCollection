@@ -1,6 +1,7 @@
 ![demo](https://github.com/Deltt/GodotSharpCharacterControllerCollection/assets/70781525/b6e50652-ba82-492c-a1a7-8418e46aa18d)
 
 # 3D C# Character Controllers
+**Free 3D C# Character Controllers for ThirdPerson (Platformer), ThirdPersonAction (God of War-style), Strategy, First Person or MMO (WoW-style) genres**.
 
 These aren't optimized by any means, but they don't do anything beyond simple camera and character controls.
 
