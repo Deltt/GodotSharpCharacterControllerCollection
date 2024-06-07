@@ -33,7 +33,7 @@ While these only are meant to be used for testing/prototyping, there's still a b
 
 ## Notes
 
-- ***The characters are not on collision layer 1, to prevent camera obstruction through the character
+- ***The characters are not on collision layer 1, to prevent camera obstruction through the character.
 Keep this in mind if you're prototyping mechanics with these assets***
 
 - Only the ThirdPersonCamera and StrategyCamera can be used as a standalone camera asset,
