@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://br5u5qrat17rv"]
+[gd_scene load_steps=10 format=3 uid="uid://bam63hgxm5e7c"]
 
-[ext_resource type="PackedScene" uid="uid://baptipjdjvaye" path="res://MMOCharacter/mmo_character.tscn" id="1_lact8"]
+[ext_resource type="PackedScene" uid="uid://baptipjdjvaye" path="res://MMOCharacter/mmo_character.tscn" id="1_52jf7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xab8w"]
 size = Vector3(30, 1, 30)
@@ -24,7 +24,7 @@ albedo_color = Color(0.529412, 0.529412, 0.529412, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_2pkke"]
 size = Vector3(10, 8, 1)
 
-[node name="TestEnvironment" type="Node3D"]
+[node name="MMODemo" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -120,5 +120,5 @@ shape = SubResource("BoxShape3D_e0c51")
 material_override = SubResource("StandardMaterial3D_4wi54")
 mesh = SubResource("BoxMesh_2pkke")
 
-[node name="MMOCharacter" parent="." instance=ExtResource("1_lact8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -1)
+[node name="MMOCharacter" parent="." instance=ExtResource("1_52jf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.86065, 1.5, -2.95966)
