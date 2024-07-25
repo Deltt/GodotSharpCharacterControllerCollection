@@ -6,7 +6,7 @@ public partial class StrategyCamera : Node3D
 	[Export] float cameraSpeed = 25;
 	[Export] float minCameraDistance = 2;
 	[Export] float maxCameraDistance = 20;
-	[Export] float zoomSensitivity = 20;
+	[Export] float zoomSensitivity = 40;
 	[Export] float cameraAngle = -55;
 
 	Camera3D camera;
@@ -66,13 +66,32 @@ public partial class StrategyCamera : Node3D
 
 	private void ZoomCamera()
 	{
-		if(Input.IsPhysicalKeyPressed(Key.Q))
+		if(InputMap.HasAction("zoom_out") && InputMap.HasAction("zoom_in"))
 		{
-			cameraDistance += zoomSensitivity * (float)GetPhysicsProcessDeltaTime();
+			if(Input.IsActionJustReleased("zoom_out"))
+			{
+				cameraDistance += zoomSensitivity * (float)GetPhysicsProcessDeltaTime();
+			}
+			else if(Input.IsActionJustReleased("zoom_in"))
+			{
+				cameraDistance -= zoomSensitivity * (float)GetPhysicsProcessDeltaTime();
+			}
 		}
-		else if(Input.IsPhysicalKeyPressed(Key.E))
+		else
 		{
-			cameraDistance -= zoomSensitivity * (float)GetPhysicsProcessDeltaTime();
+			InputMap.AddAction("zoom_out", 0.5f);
+			InputEventMouseButton eventZoomOut = new InputEventMouseButton
+			{
+				ButtonIndex = MouseButton.WheelDown
+			};
+			InputMap.ActionAddEvent("zoom_out", eventZoomOut);
+
+			InputMap.AddAction("zoom_in", 0.5f);
+			InputEventMouseButton eventZoomIn = new InputEventMouseButton
+			{
+				ButtonIndex = MouseButton.WheelUp
+			};
+			InputMap.ActionAddEvent("zoom_in", eventZoomIn);
 		}
 
 		cameraDistance = Mathf.Clamp(cameraDistance, minCameraDistance, maxCameraDistance);
