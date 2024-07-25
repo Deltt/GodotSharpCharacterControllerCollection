@@ -22,7 +22,7 @@ Now you can freely test the available controllers inside of the repo project (op
 
 
 ## What are the controls?
-The controls are for the most part what you would expect them to be based on the genre of the character. The exception for this is the StrategyCamera which zooms with Q and E (because fsr mousewheel wouldn't get recognized). They are hardcoded so no need to setup Input Actions. **Escape will quit the game**.
+The controls are for the most part what you would expect them to be based on the genre of the character. **Escape will quit the game**.
 
 Controllers are supported for *FirstPerson*, *ThirdPerson*, and *ThirdPersonAction* (as JoyPad Device 0).
 
